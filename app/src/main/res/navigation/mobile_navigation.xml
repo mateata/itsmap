@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="con.jwlee.itsmap.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_to_navigation_marketlist"
+            app:destination="@id/navigation_marketlist" />
+        <action
+            android:id="@+id/action_to_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="con.jwlee.itsmap.ui.community.CommunityFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="con.jwlee.itsmap.ui.menu.MenuFragment"
+        android:label="@string/title_menu"
+        tools:layout="@layout/fragment_menu" />
+
+    <fragment
+        android:id="@+id/navigation_marketlist"
+        android:name="con.jwlee.itsmap.ui.home.MarketListFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/market_list_ac" />
+
+    <fragment
+        android:id="@+id/navigation_gooddetail"
+        android:name="con.jwlee.itsmap.ui.community.GoodDetailFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/good_detail" />
+
+    <fragment
+        android:id="@+id/navigation_calc"
+        android:name="con.jwlee.itsmap.ui.splash.CalcFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/calc_act" />
+
+</navigation>
