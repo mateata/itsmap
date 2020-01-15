@@ -46,15 +46,6 @@ class CalcFragment : BaseFragment(){
         mContext = this.requireContext()
         text_location.setText(AppControl.sName)
         text_per.setText(AppControl.sSale)
-        header_title.setText(mContext.getString(R.string.title_calc))
-
-        bt_back.setOnClickListener {
-            when(AppControl.appIdx) {
-                1 -> { findNavController().navigate(R.id.navigation_home) }
-                3 -> { findNavController().navigate(R.id.navigation_menu) }
-                else -> { findNavController().navigate(R.id.navigation_home) }
-            }
-        }
 
         calc_0.setOnClickListener(listenerNumber())
         calc_1.setOnClickListener(listenerNumber())

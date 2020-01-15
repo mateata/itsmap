@@ -31,7 +31,6 @@ class GoodDetailFragment : BaseFragment() {
         val bundle = arguments?.getBundle("detailData")
         val goodData : GoodData = bundle?.getSerializable("goodData") as GoodData
         //영역 setText
-        header_title.setText(getString(R.string.title_dashboard))
         place_sector.setText(goodData.sector)
         place_name.setText(goodData.name)
         place_phone.setText(goodData.phone)
@@ -81,9 +80,6 @@ class GoodDetailFragment : BaseFragment() {
         } else {
             market_itemname3.setText(goodData.itemName3)
             market_itemval3.setText(Util().commaNumber(goodData.itemval3))
-        }
-        bt_back.setOnClickListener {
-            findNavController().navigate(R.id.navigation_dashboard)
         }
 
     }

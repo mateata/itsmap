@@ -15,7 +15,7 @@ import con.jwlee.itsmap.ui.BaseFragment
 import con.jwlee.itsmap.ui.splash.SetLocalActivity
 import con.jwlee.itsmap.util.Util
 import kotlinx.android.synthetic.main.fragment_menu.*
-import kotlinx.android.synthetic.main.home_toolbar.header_title
+import kotlinx.android.synthetic.main.title_toolbar.header_title
 import kotlinx.android.synthetic.main.main_toolbar.*
 
 
@@ -49,7 +49,6 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
         itssum_menu.adapter = menuAdapter
         (itssum_menu.adapter as MenuAdapter).notifyDataSetChanged()
 
-        bt_back.visibility = View.GONE
 
         header_title.setText(R.string.title_menu)
         // 남은 버튼에 리스너 등록

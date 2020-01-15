@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_to_navigation_marketlist"
-            app:destination="@id/navigation_marketlist" />
+            app:destination="@id/navigation_profile" />
         <action
             android:id="@+id/action_to_dashboard"
             app:destination="@id/navigation_dashboard" />
@@ -31,9 +31,9 @@
         tools:layout="@layout/fragment_menu" />
 
     <fragment
-        android:id="@+id/navigation_marketlist"
+        android:id="@+id/navigation_profile"
         android:name="con.jwlee.itsmap.ui.home.MarketListFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_profile"
         tools:layout="@layout/market_list_ac" />
 
     <fragment
