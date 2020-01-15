@@ -32,8 +32,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import kotlinx.android.synthetic.main.good_toolbar.*
 import kotlinx.android.synthetic.main.good_toolbar.bt_location
 import kotlinx.android.synthetic.main.good_toolbar.searchEt
-import kotlinx.android.synthetic.main.home_toolbar.*
-import kotlinx.android.synthetic.main.main_toolbar.header_title
+import kotlinx.android.synthetic.main.title_toolbar.*
 
 
 class CommunityFragment : Fragment(), View.OnClickListener {
@@ -73,7 +72,6 @@ class CommunityFragment : Fragment(), View.OnClickListener {
 
         allList = setData(AppControl.sName,root)
 
-        header_title.setText(getString(R.string.title_dashboard))
         goodList.addItemDecoration(RecyclerDeco(12))
 
         good_gubun_all.setOnClickListener(this)

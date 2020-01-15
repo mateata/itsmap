@@ -18,8 +18,7 @@ import con.jwlee.itsmap.ui.splash.SetLocalActivity
 import con.jwlee.itsmap.util.DLog
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.home_toolbar.*
-import kotlinx.android.synthetic.main.main_toolbar.header_title
+import kotlinx.android.synthetic.main.title_toolbar.*
 
 
 class HomeFragment : BaseFragment() {
@@ -59,72 +58,6 @@ class HomeFragment : BaseFragment() {
 
     fun init(root : View) {
 
-        val natureBigList = setData("bigmarket",getString(R.string.dbgubun_nature))
-        val natureOldList = setData("oldmarket",getString(R.string.dbgubun_nature))
-
-        val processBigList = setData("bigmarket",getString(R.string.dbgubun_process))
-        val processOldList = setData("oldmarket",getString(R.string.dbgubun_process))
-
-        val industBigList = setData("bigmarket",getString(R.string.dbgubun_industrial))
-        val industOldList = setData("oldmarket",getString(R.string.dbgubun_industrial))
-
-        val diningBigList = setData("bigmarket",getString(R.string.dbgubun_dining))
-        val diningOldList = setData("oldmarket",getString(R.string.dbgubun_dining))
-
-        //농축수산물 데이터로 이동
-        root.nature_button.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putParcelableArrayList("bigList",natureBigList)
-            bundle.putParcelableArrayList("oldList",natureOldList)
-            bundle.putString("category", getString(R.string.market_gubun1))
-
-            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
-        }
-
-        //가공식품 데이터로 이동
-        root.process_button.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putParcelableArrayList("bigList",processBigList)
-            bundle.putParcelableArrayList("oldList",processOldList)
-            bundle.putString("category", getString(R.string.market_gubun2))
-
-            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
-        }
-
-        //공산품 데이터로 이동
-        root.indust_button.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putParcelableArrayList("bigList",industBigList)
-            bundle.putParcelableArrayList("oldList",industOldList)
-            bundle.putString("category", getString(R.string.market_gubun3))
-
-            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
-        }
-
-        //외식비 데이터로 이동
-        root.dining_button.setOnClickListener {
-            var bundle = Bundle()
-            bundle.putParcelableArrayList("bigList",diningBigList)
-            bundle.putParcelableArrayList("oldList",diningOldList)
-            bundle.putString("category", getString(R.string.market_gubun4))
-
-            findNavController().navigate(R.id.action_to_navigation_marketlist, bundleOf("listData" to bundle))
-        }
-
-        // 리스트 우선 세팅하고 나머지 세부 뷰
-
-        AppControl.appIdx = 1
-        header_title.setText(R.string.title_home)
-        home_desc_market.setText(AppControl.sName + " " + getString(R.string.home_desc_market))
-        home_desc_good.setText(AppControl.sName + " " + getString(R.string.home_desc_good))
-
-        home_desc_temp.setOnClickListener {
-            findNavController().navigate(R.id.action_to_dashboard)
-        }
-        home_desc_good.setOnClickListener {
-            findNavController().navigate(R.id.action_to_dashboard)
-        }
-
         // 상단 지역버튼 세팅
         var locBtnId = R.drawable.bar_yeonsu
         when(AppControl.sLocation) {
@@ -137,58 +70,9 @@ class HomeFragment : BaseFragment() {
             7 -> {locBtnId = R.drawable.bar_geyang}
             8 -> {locBtnId = R.drawable.bar_west}
         }
-        bt_location.setBackgroundResource(locBtnId)
-
-        bt_location.setOnClickListener {
-            val intent = Intent(activity, SetLocalActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
-        }
         bt_calc.setOnClickListener {
             findNavController().navigate(R.id.navigation_calc)
         }
 
-    }
-
-    // Firebase Firestore 에서 데이터 읽어와서 Set
-    fun setData(colName : String, dataGubun : String) : ArrayList<Mvalue> {
-
-        var itemList = ArrayList<Mvalue>()
-
-        val bigDB= db.collection(colName).whereEqualTo("gubun",dataGubun).get()
-            bigDB.addOnSuccessListener { document ->
-                if (document != null) {
-                    for (docSnapshot : DocumentSnapshot in document) { // for문을 돌면서 Mvalue객체를 만들고 이를 itemList에 구성
-                        //DLog().e("${docSnapshot.id} => ${docSnapshot.data}")
-                        val data = docSnapshot.data
-                        if (data != null) {
-                            // 데이터 자동전환이 안되어서 수동으로 Set
-                            var mVal : Mvalue =
-                                Mvalue(
-                                    data.get("gubun").toString(),
-                                    data.get("item").toString(),
-                                    data.get("name").toString(),
-                                    data.get("middle").toString().toInt(),
-                                    data.get("east").toString().toInt(),
-                                    data.get("michuhol").toString().toInt(),
-                                    data.get("yeonsu").toString().toInt(),
-                                    data.get("southeast").toString().toInt(),
-                                    data.get("bupyeong").toString().toInt(),
-                                    data.get("geyang").toString().toInt(),
-                                    data.get("west").toString().toInt(),
-                                    data.get("average").toString().toInt()
-                                )
-                            itemList.add(mVal)
-                            DLog().e("${colName} : ${mVal.item} => ${mVal.toString()}")
-                        }
-                    }
-                } else {
-                    DLog().e("No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                DLog().e("get failed with : ${exception} ")
-            }
-        return itemList
     }
 }

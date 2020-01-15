@@ -21,9 +21,7 @@ import con.jwlee.itsmap.ui.BaseFragment
 import con.jwlee.itsmap.ui.RecyclerDeco
 import con.jwlee.itsmap.util.Util
 import kotlinx.android.synthetic.main.good_toolbar.*
-import kotlinx.android.synthetic.main.main_toolbar.*
 import kotlinx.android.synthetic.main.main_toolbar.bt_search
-import kotlinx.android.synthetic.main.main_toolbar.header_title
 import kotlinx.android.synthetic.main.market_list_ac.*
 
 class MarketListFragment : BaseFragment() {
@@ -71,9 +69,6 @@ class MarketListFragment : BaseFragment() {
         (marketTable.adapter as CompareAdapter).notifyDataSetChanged()
         marketTable.addItemDecoration(RecyclerDeco(12))
 
-        bt_back.setOnClickListener {
-            findNavController().navigate(R.id.navigation_home)
-        }
 
         // 타이틀 및 글자 Set
         header_title.setText(R.string.title_home)
