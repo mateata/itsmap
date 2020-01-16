@@ -1,4 +1,4 @@
-package con.jwlee.itsmap.ui.home
+package con.jwlee.itsmap.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,16 +7,14 @@ import android.view.ViewGroup
 import con.jwlee.itsmap.ui.BaseActivity
 import con.jwlee.itsmap.ui.BaseFragment
 
-
-class HomeFragment : BaseFragment() {
-
+class ProfileFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(con.jwlee.itsmap.R.layout.fragment_home, container, false)
+        val root = inflater.inflate(con.jwlee.itsmap.R.layout.fragment_profile, container, false)
         return root
     }
 
@@ -27,8 +25,8 @@ class HomeFragment : BaseFragment() {
 
     companion object {
 
-        fun newInstance(): HomeFragment {
-            return HomeFragment()
+        fun newInstance(): ProfileFragment {
+            return ProfileFragment()
         }
     }
 

@@ -32,9 +32,9 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="con.jwlee.itsmap.ui.home.MarketListFragment"
+        android:name="con.jwlee.itsmap.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/market_list_ac" />
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_gooddetail"
