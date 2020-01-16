@@ -1,15 +1,14 @@
 package con.jwlee.itsmap.ui.splash
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
-import con.jwlee.itsmap.ui.BaseActivity
-import android.widget.ViewFlipper
-import con.jwlee.itsmap.R
-import kotlinx.android.synthetic.main.splash_view.*
 import android.view.animation.AnimationUtils
+import android.widget.ViewFlipper
 import con.jwlee.itsmap.MainActivity
+import con.jwlee.itsmap.R
+import con.jwlee.itsmap.ui.BaseActivity
+import kotlinx.android.synthetic.main.splash_view.*
 
 
 class SplashActivity : BaseActivity(), View.OnTouchListener {
@@ -35,7 +34,7 @@ class SplashActivity : BaseActivity(), View.OnTouchListener {
 
         flipper.setOnTouchListener(this)
         skipbtn.setOnClickListener {
-            startNextActivity(SetLocalActivity::class.java)
+            startNextActivity(MainActivity::class.java)
         }
     }
 
@@ -69,9 +68,6 @@ class SplashActivity : BaseActivity(), View.OnTouchListener {
         flipper.outAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_slide_out_left)
         flipper.showNext()
         idx++
-        if(idx == 2) {
-            skipbtn.setBackgroundResource(R.drawable.startbtn)
-        }
     }
 
     fun movePreview() {
@@ -82,8 +78,5 @@ class SplashActivity : BaseActivity(), View.OnTouchListener {
         flipper.outAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_slide_out_right)
         flipper.showPrevious()
         idx--
-        if(idx < 2) {
-            skipbtn.setBackgroundResource(R.drawable.skipbtn)
-        }
     }
 }

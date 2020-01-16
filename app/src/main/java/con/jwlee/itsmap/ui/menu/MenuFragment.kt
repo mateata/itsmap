@@ -50,7 +50,6 @@ class MenuFragment : BaseFragment(), AdapterView.OnItemClickListener, View.OnCli
         (itssum_menu.adapter as MenuAdapter).notifyDataSetChanged()
 
 
-        header_title.setText(R.string.title_menu)
         // 남은 버튼에 리스너 등록
         menubtn_calc.setOnClickListener(this)
         menubtn_favorite.setOnClickListener(this)
