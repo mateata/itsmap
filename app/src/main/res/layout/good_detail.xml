@@ -46,7 +46,7 @@
             android:layout_height="160dp"
             android:layout_marginTop="33dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/map_temp"
+            android:src="@drawable/map_temp_sw"
             android:background="@drawable/line_outer"/>
 
         <TextView
