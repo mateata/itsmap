@@ -10,21 +10,24 @@
         android:id="@+id/home_toolbar"
         layout="@layout/main_toolbar"/>
 
-    <RelativeLayout
-        android:id="@+id/map_bg"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:paddingRight="0dp"
-        android:layout_marginBottom="@dimen/tap_bottom_margin"
-        android:background="@drawable/map_temp">
+        android:layout_marginBottom="@dimen/tap_bottom_margin">
+
+        <RelativeLayout
+            android:id="@+id/map_temp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingRight="0dp"
+            android:background="@drawable/map_temp_sw"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </RelativeLayout>
 
 
-
-
-    </RelativeLayout>
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
+
