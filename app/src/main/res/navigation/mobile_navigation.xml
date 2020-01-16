@@ -37,10 +37,10 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/navigation_gooddetail"
-        android:name="con.jwlee.itsmap.ui.community.GoodDetailFragment"
+        android:id="@+id/navigation_flip"
+        android:name="con.jwlee.itsmap.ui.home.FlipFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/good_detail" />
+        tools:layout="@layout/fragment_flip" />
 
     <fragment
         android:id="@+id/navigation_calc"
