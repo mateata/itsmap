@@ -36,6 +36,19 @@
             android:windowSoftInputMode="adjustPan|adjustResize"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity
+            android:name="con.jwlee.itsmap.ui.splash.SelectActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="con.jwlee.itsmap.ui.splash.LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="con.jwlee.itsmap.ui.splash.JoinActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

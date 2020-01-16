@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White">
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_marginTop="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mavil_logo"
+        />
+
+    <ImageView
+        android:id="@+id/loginbtn"
+        android:layout_marginTop="60dp"
+        android:layout_width="230dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/login_btn"
+        />
+    <ImageView
+        android:id="@+id/joinbtn"
+        android:layout_marginTop="30dp"
+        android:layout_width="230dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/join_btn"
+        />
+</LinearLayout>
